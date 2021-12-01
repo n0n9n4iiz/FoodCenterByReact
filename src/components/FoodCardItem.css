@@ -1,0 +1,8 @@
+.card-box{
+    cursor: pointer;
+}
+.zoom:hover{
+    z-index: 2;
+    transition-duration: 2s;
+    transform: scale(1.01);
+}
