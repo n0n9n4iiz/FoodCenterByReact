@@ -1,18 +1,21 @@
 import React, { Component, useState } from "react";
 import "../App.css";
 import { Container,Row } from "react-bootstrap";
-import FoodCardItem from "../components/FoodCardItem";
 import FoodSearch from "../components/FoodSearch";
 import Food from "../data/Food";
 import Cart from "../data/Cart";
+import FoodCardItem from "../components/FoodCardItem";
 
-var Home = () => {
-  const [numberItemInCart, setNumberItemInCart] = useState(0);
+var Home = (props) => {
+  const [searchTest, setSearchTest] = useState('')
   var addToCart = (food) => {
-    setNumberItemInCart(Cart.length + 1)
     Cart.push(food)
+    props.setCartNum(Cart.length)
   }
-  var foodElement = Food.map((food, index) => {
+  var filteredFood = Food.filter((food)=>{
+    return food.name.includes(searchTest)
+  })
+  var foodElement = filteredFood.map((food, index) => {
     return (<FoodCardItem key={index} item={food} addCart={()=>{addToCart(food)}}/>);
   });
   return (
@@ -21,7 +24,7 @@ var Home = () => {
           <h1>Food center</h1>
           <hr />
           <Row>
-            <FoodSearch/>
+            <FoodSearch search={(e)=>{setSearchTest(e.target.value)}}/>
           </Row>
           <Row>
             {foodElement}

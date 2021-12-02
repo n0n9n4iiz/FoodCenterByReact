@@ -1,5 +1,4 @@
 import React from "react";
-import Food from "../data/Food";
 import "./FoodCardItem.css"
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
@@ -23,7 +22,7 @@ var FoodCardItem = (props) => {
           {item.descipt}
         </Card.Text>
         <Button className="mt-auto" variant="primary" onClick={addCart}>
-          Add to cart
+          เลือก
         </Button>
       </Card.Body>
     </Card>

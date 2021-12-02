@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar } from "react-bootstrap";
@@ -7,7 +7,8 @@ import { Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-var NavbarComponent = () => {
+var NavbarComponent = (props) => {
+  const { cartNum } = props;
   return (
       <Navbar bg="light" fixed="top" expand="lg">
         <Container fluid={true}>
@@ -19,7 +20,7 @@ var NavbarComponent = () => {
               <Nav.Link as={Link} to="/about">About</Nav.Link>
               <Nav.Link as={Link} to="/about">
                 <FontAwesomeIcon icon={faShoppingCart}/>
-                <span class='badge badge-warning' id='lblCartCount'> 5 </span>
+                <span className='badge badge-warning' id='lblCartCount'> {cartNum} </span>
                 </Nav.Link>
             </Nav>
           </Navbar.Collapse>
