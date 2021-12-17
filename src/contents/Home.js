@@ -3,14 +3,14 @@ import "../App.css";
 import { Container,Row } from "react-bootstrap";
 import FoodSearch from "../components/FoodSearch";
 import Food from "../data/Food";
-import Cart from "../data/Cart";
+import CartList from "../data/Cart";
 import FoodCardItem from "../components/FoodCardItem";
 
 var Home = (props) => {
   const [searchTest, setSearchTest] = useState('')
   var addToCart = (food) => {
-    Cart.push(food)
-    props.setCartNum(Cart.length)
+    CartList.push(food)
+    props.setCartNum(CartList.length)
   }
   var filteredFood = Food.filter((food)=>{
     return food.name.includes(searchTest)

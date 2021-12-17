@@ -17,8 +17,8 @@ var NavbarComponent = (props) => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/">Home</Nav.Link>
-              <Nav.Link as={Link} to="/about">About</Nav.Link>
-              <Nav.Link as={Link} to="/about">
+              <Nav.Link as={Link} to="/Cart">Cart</Nav.Link>
+              <Nav.Link as={Link} to="/Cart">
                 <FontAwesomeIcon icon={faShoppingCart}/>
                 <span className='badge badge-warning' id='lblCartCount'> {cartNum} </span>
                 </Nav.Link>
